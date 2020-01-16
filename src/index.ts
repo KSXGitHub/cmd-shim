@@ -381,13 +381,10 @@ function generateShShim (src: string, to: string, opts: InternalOptions): string
   // esac
   //
   // if [ -x "$basedir/node.exe" ]; then
-  //   "$basedir/node.exe" "$basedir/node_modules/npm/bin/npm-cli.js" "$@"
-  //   ret=$?
+  //   exec "$basedir/node.exe" "$basedir/node_modules/npm/bin/npm-cli.js" "$@"
   // else
-  //   node "$basedir/node_modules/npm/bin/npm-cli.js" "$@"
-  //   ret=$?
+  //   exec node "$basedir/node_modules/npm/bin/npm-cli.js" "$@"
   // fi
-  // exit $ret
 
   let sh = '#!/bin/sh\n'
   sh = sh +
